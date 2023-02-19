@@ -1,27 +1,20 @@
 package ru.netology.task6.services;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class VacationSchedulerServiceTest {
 
-    @Test
-    public void testLowIncome() {
+    @CsvFileSource(files = "src/test/resources/vacation.csv")
+
+    @ParameterizedTest
+    public void testVacationCount(int expected, int income, int expenses, int threshold) {
         VacationSchedulerService service = new VacationSchedulerService();
 
-        int expected = 3;
-        int actual = service.calculate(10, 3, 20);
+        int actual = service.calculate(income, expenses, threshold);
 
         Assertions.assertEquals(actual, expected);
     }
 
-    @Test
-    public void testHighIncome() {
-        VacationSchedulerService service = new VacationSchedulerService();
-
-        int expected = 2;
-        int actual = service.calculate(100, 60, 150);
-
-        Assertions.assertEquals(actual, expected);
-    }
 }
