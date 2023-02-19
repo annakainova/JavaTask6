@@ -10,7 +10,7 @@ public class VacationSchedulerServiceTest {
         VacationSchedulerService service = new VacationSchedulerService();
 
         int expected = 3;
-        int actual = service.calculate(10,3,20);
+        int actual = service.calculate(10, 3, 20);
 
         Assertions.assertEquals(actual, expected);
     }
@@ -20,7 +20,7 @@ public class VacationSchedulerServiceTest {
         VacationSchedulerService service = new VacationSchedulerService();
 
         int expected = 2;
-        int actual = service.calculate(100,60,150);
+        int actual = service.calculate(100, 60, 150);
 
         Assertions.assertEquals(actual, expected);
     }
